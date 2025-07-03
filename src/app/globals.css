@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+/* Base styles for Midnight Neon theme */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background: #0F172A;
+  color: #F1F5F9;
+  font-family: var(--font-source-sans-3), ui-sans-serif, system-ui;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Enhanced Background with Texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Main gradient background */
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+    /* Texture overlay */
+    linear-gradient(45deg, rgba(139, 92, 246, 0.05) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(16, 185, 129, 0.05) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(139, 92, 246, 0.05) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(16, 185, 129, 0.05) 75%),
+    /* Base dark background */
+    #0F172A;
+  background-size: 60px 60px, 60px 60px, 60px 60px, 60px 60px;
+  background-position: 0 0, 0 0, 30px 30px, 30px 30px;
+  pointer-events: none;
+  z-index: -1;
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+/* Animated background movement */
+@keyframes backgroundShift {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(2px) translateY(-2px);
+  }
+  50% {
+    transform: translateX(-1px) translateY(2px);
+  }
+  75% {
+    transform: translateX(-2px) translateY(-1px);
+  }
+}
+
+/* Fix container and grid behavior */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Ensure grid and flex containers work properly */
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+/* Headings use Inter font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+  font-weight: 600;
+  color: #F1F5F9;
+  line-height: 1.2;
+}
+
+/* Responsive typography */
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+/* Links */
+a {
+  color: #8B5CF6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #B794F6;
+}
+
+a:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E293B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8B5CF6, #10B981);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #B794F6, #34D399);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(139, 92, 246, 0.3);
+  color: #F1F5F9;
+}
+
+/* Focus outline for accessibility */
+*:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+/* Button focus */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Enhanced Utility classes */
+.text-gradient {
+  background: linear-gradient(135deg, #8B5CF6 0%, #10B981 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.backdrop-blur-light {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glow-primary {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
+.glow-accent {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+}
+
+/* Enhanced Animations */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* Animation Classes */
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Force colors for specific elements */
+.force-primary-bg {
+  background: #8B5CF6 !important;
+  color: white !important;
+}
+
+.force-secondary-bg {
+  background: #10B981 !important;
+  color: white !important;
+}
+
+.force-warning-bg {
+  background: #F59E0B !important;
+  color: white !important;
+}
+
+.force-gradient-bg {
+  background: linear-gradient(135deg, #8B5CF6 0%, #10B981 50%, #F59E0B 100%) !important;
+  color: white !important;
+}
+
+/* HeroUI Component Overrides */
+[data-theme="dark"] {
+  --nextui-background: #0F172A;
+  --nextui-foreground: #F1F5F9;
+  --nextui-primary: #8B5CF6;
+  --nextui-secondary: #10B981;
+  --nextui-warning: #F59E0B;
+  --nextui-default-50: rgba(30, 41, 59, 0.1);
+  --nextui-default-100: rgba(30, 41, 59, 0.2);
+  --nextui-default-200: rgba(30, 41, 59, 0.3);
+}
+
+/* Loading states */
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced hover effects */
+.hover-glow:hover {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.875rem;
+  }
+  
+  /* Improve tap targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Adjust animations for mobile */
+  .animate-bounce-slow {
+    animation-duration: 4s;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
