@@ -11,56 +11,71 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Midnight Neon Theme - Custom colors for specific use
-        bgPrimary: "#0F172A", // Rich Dark Blue-Black
-        bgSurface: "#1E293B", // Elevated Dark Gray
+        // Dark Sophisticated Theme - Black and dark tones
+        bgPrimary: "#000000", // Pure Black
+        bgSurface: "#111111", // Very Dark Gray
+        
+        // Sophisticated Dark Colors
+        dark: {
+          cyan: "#4A90A4", // Muted Dark Cyan
+          magenta: "#8B4A8B", // Muted Dark Magenta
+          blue: "#4A6FA5", // Muted Dark Blue  
+          lime: "#6B8E23", // Muted Dark Lime
+          purple: "#6A4C93", // Muted Dark Purple
+          yellow: "#B8860B", // Dark Goldenrod
+          pink: "#B8505A", // Muted Dark Pink
+          orange: "#A0522D", // Muted Dark Orange
+          gray: "#2A2A2A", // Dark Gray
+          charcoal: "#1A1A1A", // Charcoal
+        },
+        
         customPrimary: {
-          DEFAULT: "#8B5CF6", // Vibrant Purple
-          50: "#F3F0FF",
-          100: "#E5DEFF",
-          200: "#D1C4E9",
-          300: "#B794F6",
-          400: "#9F7AEA",
-          500: "#8B5CF6", // Main
-          600: "#7C3AED",
-          700: "#6B46C1",
-          800: "#553C9A",
-          900: "#44337A",
+          DEFAULT: "#4A90A4", // Muted Dark Cyan
+          50: "#F0F4F5",
+          100: "#E1E9EB", 
+          200: "#C3D3D7",
+          300: "#A5BDC3",
+          400: "#87A7AF",
+          500: "#4A90A4", // Main
+          600: "#3E7A8A",
+          700: "#326470",
+          800: "#264E56",
+          900: "#1A383C",
         },
         customSecondary: {
-          DEFAULT: "#10B981", // Emerald Green
-          50: "#F0FDF4",
-          100: "#DCFCE7",
-          200: "#BBF7D0",
-          300: "#86EFAC",
-          400: "#4ADE80",
-          500: "#10B981", // Main
-          600: "#059669",
-          700: "#047857",
-          800: "#065F46",
-          900: "#064E3B",
+          DEFAULT: "#8B4A8B", // Muted Dark Magenta
+          50: "#F4F0F4",
+          100: "#E9E1E9",
+          200: "#D3C3D3",
+          300: "#BDA5BD",
+          400: "#A787A7",
+          500: "#8B4A8B", // Main
+          600: "#743E74",
+          700: "#5D325D",
+          800: "#462646",
+          900: "#2F1A2F",
         },
         customAccent: {
-          DEFAULT: "#F59E0B", // Golden Amber
-          50: "#FFFBEB",
-          100: "#FEF3C7",
-          200: "#FDE68A",
-          300: "#FCD34D",
-          400: "#FBBF24",
-          500: "#F59E0B", // Main
-          600: "#D97706",
-          700: "#B45309",
-          800: "#92400E",
-          900: "#78350F",
+          DEFAULT: "#6B8E23", // Muted Dark Lime
+          50: "#F2F5E8",
+          100: "#E5EBD1",
+          200: "#CBD7A3",
+          300: "#B1C375",
+          400: "#97AF47",
+          500: "#6B8E23", // Main
+          600: "#59771D",
+          700: "#476017",
+          800: "#354911",
+          900: "#23320B",
         },
         text: {
-          light: "#F1F5F9", // Soft White
-          muted: "#94A3B8", // Cool Gray
-          dark: "#1E293B", // For light backgrounds
+          light: "#F5F5F5", // Off White
+          muted: "#888888", // Medium Gray
+          dark: "#111111", // For light backgrounds
         },
-        danger: "#EF4444",
-        success: "#10B981",
-        warning: "#F59E0B",
+        danger: "#DC2626",
+        success: "#16A34A",
+        warning: "#CA8A04",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
@@ -87,6 +102,9 @@ const config: Config = {
         "slide-up": "slideUp 0.5s ease-out",
         "glow": "glow 2s ease-in-out infinite alternate",
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "subtle-pulse": "subtlePulse 3s ease-in-out infinite alternate",
+        "dark-float": "darkFloat 8s ease-in-out infinite",
+        "logo-spin": "logoSpin 30s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -98,8 +116,25 @@ const config: Config = {
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
         glow: {
-          "0%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" },
-          "100%": { boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)" },
+          "0%": { boxShadow: "0 0 20px rgba(74, 144, 164, 0.3)" },
+          "100%": { boxShadow: "0 0 30px rgba(74, 144, 164, 0.5)" },
+        },
+        subtlePulse: {
+          "0%": { 
+            boxShadow: "0 0 10px rgba(74, 144, 164, 0.2), 0 0 20px rgba(74, 144, 164, 0.1)" 
+          },
+          "100%": { 
+            boxShadow: "0 0 15px rgba(74, 144, 164, 0.3), 0 0 30px rgba(74, 144, 164, 0.2)" 
+          },
+        },
+        darkFloat: {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "33%": { transform: "translateY(-6px) rotate(0.5deg)" },
+          "66%": { transform: "translateY(3px) rotate(-0.5deg)" },
+        },
+        logoSpin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
       backdropBlur: {
@@ -112,47 +147,47 @@ const config: Config = {
     themes: {
       dark: {
         colors: {
-          // Override HeroUI dark theme with our Midnight Neon colors
-          background: "#0F172A",
-          foreground: "#F1F5F9",
+          // Override HeroUI dark theme with sophisticated dark colors
+          background: "#000000",
+          foreground: "#F5F5F5",
           primary: {
-            50: "#F3F0FF",
-            100: "#E5DEFF", 
-            200: "#D1C4E9",
-            300: "#B794F6",
-            400: "#9F7AEA",
-            500: "#8B5CF6",
-            600: "#7C3AED",
-            700: "#6B46C1",
-            800: "#553C9A",
-            900: "#44337A",
-            DEFAULT: "#8B5CF6",
+            50: "#F0F4F5",
+            100: "#E1E9EB", 
+            200: "#C3D3D7",
+            300: "#A5BDC3",
+            400: "#87A7AF",
+            500: "#4A90A4",
+            600: "#3E7A8A",
+            700: "#326470",
+            800: "#264E56",
+            900: "#1A383C",
+            DEFAULT: "#4A90A4",
             foreground: "#FFFFFF",
           },
           secondary: {
-            50: "#F0FDF4",
-            100: "#DCFCE7",
-            200: "#BBF7D0", 
-            300: "#86EFAC",
-            400: "#4ADE80",
-            500: "#10B981",
-            600: "#059669",
-            700: "#047857",
-            800: "#065F46",
-            900: "#064E3B",
-            DEFAULT: "#10B981",
+            50: "#F4F0F4",
+            100: "#E9E1E9",
+            200: "#D3C3D3",
+            300: "#BDA5BD",
+            400: "#A787A7",
+            500: "#8B4A8B",
+            600: "#743E74",
+            700: "#5D325D",
+            800: "#462646",
+            900: "#2F1A2F",
+            DEFAULT: "#8B4A8B",
             foreground: "#FFFFFF",
           },
           success: {
-            DEFAULT: "#10B981",
+            DEFAULT: "#16A34A",
             foreground: "#FFFFFF",
           },
           warning: {
-            DEFAULT: "#F59E0B",
+            DEFAULT: "#CA8A04",
             foreground: "#FFFFFF",
           },
           danger: {
-            DEFAULT: "#EF4444",
+            DEFAULT: "#DC2626",
             foreground: "#FFFFFF",
           },
         },

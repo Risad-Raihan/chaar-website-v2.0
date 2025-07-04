@@ -1,26 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Source_Sans_3, Poppins } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
-// Font configurations for optimal performance
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sourceSans3 = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-source-sans-3",
-  display: "swap",
-});
-
-const poppins = Poppins({
+// Font configuration for optimal performance
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -84,9 +71,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${sourceSans3.variable} ${poppins.variable} antialiased min-h-screen bg-bgPrimary text-foreground`}
+        className={`${outfit.variable} antialiased min-h-screen bg-bgPrimary text-foreground dark`}
+        suppressHydrationWarning
       >
         <Providers>
           {children}
